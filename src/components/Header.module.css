@@ -1,0 +1,28 @@
+.contain {
+  background-color: rgb(163, 127, 78);
+  width: 100%;
+}
+
+.title {
+  text-align: center;
+  padding: 11.4rem;
+  font-size: 60px;
+  color: white;
+}
+
+.search {
+  font-size: 22px;
+  width: 60rem;
+  padding: 1.5rem 0 1.5rem 4rem;
+  border-radius: 0.3rem;
+  border: none;
+}
+.search::placeholder {
+  text-align: left;
+}
+.searchLogo {
+  position: relative;
+  left: 3rem;
+  top: 0.4rem;
+  width: 1.5rem;
+}

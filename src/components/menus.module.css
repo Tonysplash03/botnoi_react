@@ -1,0 +1,17 @@
+.title {
+  color: #e56336;
+  font-size: 32px;
+  text-align: center;
+  margin: 5rem 0;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 1rem;
+  row-gap: 1rem;
+  max-width: 1920px;
+  margin-left: 10%;
+  margin-right: auto;
+  grid-gap: 0px; /* Why grid gap doesn't reduce the column distance of each component*/
+}
