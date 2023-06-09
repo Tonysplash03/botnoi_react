@@ -1,6 +1,14 @@
 import classes from "./Header.module.css";
+import { useState } from "react";
+import foods from "./Info/data";
 
 function Header(props) {
+  const [searchText, setSearchText] = useState(""); //need to be call in the react function
+
+  const filteredFoods = foods.filter((food) => {
+    return food.foodName.includes(searchText); //'title' not sure if check for key value in food data
+  });
+
   return (
     <nav
       className={classes.contain}
@@ -19,11 +27,18 @@ function Header(props) {
             className={classes.search}
             type="text"
             placeholder="Find the menu that you want..."
+            value={searchText}
+            onChange={(event) => {
+              setSearchText(event.target.value);
+            }}
           ></input>
         </div>
       </div>
     </nav>
   );
 }
-
+// const filteredFoods = foods.filter((food) => {
+//   return food.foodName.includes("");
+// });
+// export { filteredFoods };
 export default Header;

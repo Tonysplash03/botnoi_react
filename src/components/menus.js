@@ -1,47 +1,26 @@
 import classes from "./menus.module.css";
 import Card_info from "./Card_info";
+import foods from "./Info/data";
+import { useState } from "react";
+import { filteredFoods } from "./Header";
 
 function Menus() {
-  const foods = [
-    {
-      foodName: "burger",
-      image: "/images/card-image1.png",
-    },
-    {
-      foodName: "ramen",
-      image: "/images/card-image2.png",
-    },
-  ];
+  const [selectedFood, setSelectedFood] = useState(null); //Should I use onClick to show the ingredient page or route to show the page
+  //not sure how to go back after enter the ingredient page
+
+  // const [searchText, setSearchText] = useState(""); //need to be call in the react function
+
+  // const filteredFoods = foods.filter((food) => {
+  //   return food.foodName.includes(searchText); //'title' not sure if check for key value in food data
+  // });
 
   const foodElements = foods.map((food, index) => {
-    return <Card_info food={food} />;
+    return <Card_info key={index} food={food} />;
   });
   return (
     <main>
       <h2 className={classes.title}>Recommended Menu</h2>
-      <section className={classes.cards}>
-        {foodElements}
-        {/* <div>
-          <img src="/images/card-image1.png"></img>
-          <h4>FoodName</h4>
-        </div>
-        <div>
-          <img src="/images/card-image2.png"></img>
-          <h4>FoodName</h4>
-        </div>
-        <div>
-          <img src="/images/card-image.png"></img>
-          <h4>FoodName</h4>
-        </div>
-        <div>
-          <img src="/images/card-image1.png"></img>
-          <h4>FoodName</h4>
-        </div>
-        <div>
-          <img src="/images/card-image2.png"></img>
-          <h4>FoodName</h4>
-        </div> */}
-      </section>
+      <section className={classes.cards}>{foodElements}</section>
     </main>
   );
 }
