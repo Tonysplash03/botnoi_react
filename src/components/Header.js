@@ -3,11 +3,7 @@ import { useState } from "react";
 import foods from "./Info/data";
 
 function Header(props) {
-  const [searchText, setSearchText] = useState(""); //need to be call in the react function
-
-  const filteredFoods = foods.filter((food) => {
-    return food.foodName.includes(searchText); //'title' not sure if check for key value in food data
-  });
+  const { value, onValueChange } = props;
 
   return (
     <nav
@@ -27,9 +23,9 @@ function Header(props) {
             className={classes.search}
             type="text"
             placeholder="Find the menu that you want..."
-            value={searchText}
+            value={value}
             onChange={(event) => {
-              setSearchText(event.target.value);
+              onValueChange(event.target.value);
             }}
           ></input>
         </div>
